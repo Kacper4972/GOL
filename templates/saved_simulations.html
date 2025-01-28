@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zapisane symulacje</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <h1>Zapisane symulacje</h1>
+    
+    <ul>
+        {% for sim in simulations %}
+            <li>
+                {{ sim.name }} 
+                <a href="{{ url_for('load_simulation', sim_id=sim.id) }}">
+                    <button>Wczytaj</button>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ url_for('index') }}"><button>Powrót</button></a>
+
+</body>
+</html>
