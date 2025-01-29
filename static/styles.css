@@ -50,8 +50,11 @@ h1 {
 
 /* Canvas */
 canvas {
-    border: 2px solid #ff4757;
+    border: 3px solid #ff4757;
     background-color: #2c2c2c;
+    margin-top: 20px;
+    width: 60vw;  /* 90% szerokości ekranu */
+    height: 60vh; /* 90% wysokości ekranu */
 }
 
 /* Przyciski */

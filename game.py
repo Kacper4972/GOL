@@ -1,7 +1,7 @@
 import numpy as np
 
 class GameOfLife:
-    def __init__(self, rows=20, cols=20):
+    def __init__(self, rows=100, cols=100):
         self.rows = rows
         self.cols = cols
         self.grid = np.random.choice([0, 1], size=(rows, cols)).tolist()  # Plansza jako lista

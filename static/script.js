@@ -1,8 +1,8 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
-const cellSize = 20;
-const rows = 20;
-const cols = 20;
+const cellSize = 15;
+const rows = 100;
+const cols = 100;
 canvas.width = cols * cellSize;
 canvas.height = rows * cellSize;
 
@@ -37,23 +37,29 @@ function drawGrid() {
 canvas.addEventListener("click", async (event) => {
     if (intervalId !== null) return; // Jeśli symulacja działa, nie można edytować
 
-    const rect = canvas.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
+    const rect = canvas.getBoundingClientRect();  // Pobranie rzeczywistego rozmiaru canvasu na ekranie
+    const scaleX = canvas.width / rect.width;    // Skalowanie w poziomie
+    const scaleY = canvas.height / rect.height;  // Skalowanie w pionie
+
+    const x = (event.clientX - rect.left) * scaleX;
+    const y = (event.clientY - rect.top) * scaleY;
 
     const col = Math.floor(x / cellSize);
     const row = Math.floor(y / cellSize);
 
-    grid[row][col] = grid[row][col] === 1 ? 0 : 1; // Przełączamy stan komórki
-    drawGrid();
+    if (row >= 0 && row < rows && col >= 0 && col < cols) {  // Sprawdzamy, czy kliknięcie było w zakresie
+        grid[row][col] = grid[row][col] === 1 ? 0 : 1; // Przełączamy stan komórki
+        drawGrid();
 
-    // Aktualizacja stanu w backendzie
-    await fetch("/update_grid", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ grid })
-    });
+        // Aktualizacja stanu w backendzie
+        await fetch("/update_grid", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ grid })
+        });
+    }
 });
+
 
 // Generowanie nowej generacji
 async function nextGeneration() {
