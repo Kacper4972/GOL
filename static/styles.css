@@ -37,7 +37,7 @@ h1 {
     margin-top: 20px;
     font-weight: 600;
     font-size: 32px;
-    color: #f1f1f1;
+    color: #ff4757;
 }
 
 /* Kontener gry */
@@ -137,3 +137,4 @@ canvas {
 .simulation-list li button:hover {
     background-color: #2a7cb7;
 }
+
