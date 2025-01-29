@@ -1,10 +1,3 @@
-# Strona z symulacja Conway's Game of Life
-### Z u偶yciem Flaska - w ramach projektu na przemiot "Python w praktyce - web & deep learning"
-### Autorzy:
-- Kacper Pietrucha
-- Gabriel Tyszka - (https://github.com/Dnsflr)
-- Jakub Pawlak
-
 # **Game of Life Web**
 
 Game of Life Web to interaktywna aplikacja webowa oparta na **Flasku**, symulująca "Grę w życie" Johna Conwaya. Umożliwia użytkownikom logowanie, edycję planszy, zapis i wczytywanie symulacji oraz pełną kontrolę nad przebiegiem gry.
