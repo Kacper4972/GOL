@@ -5,30 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game of Life</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Pasek nawigacyjny -->
     <nav>
         <span>Witaj, {{ current_user.username }}!</span>
         {% if current_user.is_authenticated %}
-            <a href="{{ url_for('logout') }}"><button id="logoutBtn">Wyloguj</button></a>
+            <a href="{{ url_for('saved_simulations') }}"><button id="savedBtn">📁 Zapisane symulacje</button></a>
+            <a href="{{ url_for('logout') }}"><button id="logoutBtn">🚪 Wyloguj</button></a>
         {% else %}
-            <a href="{{ url_for('login') }}"><button id="loginBtn">Zaloguj</button></a>
+            <a href="{{ url_for('login') }}"><button id="loginBtn">🔑 Zaloguj</button></a>
         {% endif %}
     </nav>
 
     <h1>Game of Life Conwaya</h1>
-    <canvas id="gameCanvas"></canvas>
-
-    <div class="buttons">
-        <button id="startBtn">Start</button>
-        <button id="stopBtn">Stop</button>
-        <button id="randomBtn">Losuj planszę</button>
-        <button id="saveBtn">Zapisz symulację</button>
-        <a href="{{ url_for('saved_simulations') }}"><button id="savedBtn">Zapisane symulacje</button></a>
-    </div>
     
+    <div class="game-container">
+        <canvas id="gameCanvas"></canvas>
+        <div class="buttons">
+            <button id="startBtn">▶ Start</button>
+            <button id="stopBtn">⏸ Stop</button>
+            <button id="randomBtn">🔄 Losuj planszę</button>
+            <button id="saveBtn">💾 Zapisz symulację</button>
+        </div>
+    </div>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>

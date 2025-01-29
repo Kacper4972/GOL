@@ -8,20 +8,20 @@
 </head>
 <body>
 
-    <h1>Zapisane symulacje</h1>
+    <h1>📁 Zapisane symulacje</h1>
     
-    <ul>
+    <ul class="simulation-list">
         {% for sim in simulations %}
             <li>
-                {{ sim.name }} 
+                <span>{{ sim.name }}</span>
                 <a href="{{ url_for('load_simulation', sim_id=sim.id) }}">
-                    <button>Wczytaj</button>
+                    <button>▶ Wczytaj</button>
                 </a>
             </li>
         {% endfor %}
     </ul>
 
-    <a href="{{ url_for('index') }}"><button>Powrót</button></a>
+    <a href="{{ url_for('index') }}"><button>⬅ Powrót</button></a>
 
 </body>
 </html>

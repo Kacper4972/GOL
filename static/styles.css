@@ -1,40 +1,136 @@
+/* Styl ogólny */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Pasek nawigacyjny */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1e1e1e;
+    padding: 15px;
+    font-size: 18px;
+}
+
+nav button {
+    padding: 10px 15px;
+    background-color: #ff4757;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+nav button:hover {
+    background-color: #e84118;
+}
+
+/* Nagłówek */
+h1 {
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 32px;
+    color: #f1f1f1;
+}
+
+/* Kontener gry */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Canvas */
+canvas {
+    border: 2px solid #ff4757;
+    background-color: #2c2c2c;
+}
+
+/* Przyciski */
 .buttons {
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 .buttons button {
-    padding: 10px;
-    font-size: 16px;
-    margin: 5px;
+    padding: 12px 20px;
+    font-size: 18px;
+    margin: 8px;
     cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
 }
 
 #startBtn {
-    background-color: green;
+    background-color: #27ae60;
     color: white;
-    border: none;
-}
-
-#stopBtn {
-    background-color: red;
-    color: white;
-    border: none;
 }
 
 #startBtn:hover {
-    background-color: darkgreen;
+    background-color: #1f8b50;
+}
+
+#stopBtn {
+    background-color: #e67e22;
+    color: white;
 }
 
 #stopBtn:hover {
-    background-color: darkred;
+    background-color: #c56a1d;
 }
 
 #randomBtn {
-    background-color: blue;
+    background-color: #3498db;
     color: white;
-    border: none;
 }
 
 #randomBtn:hover {
-    background-color: darkblue;
+    background-color: #2a7cb7;
+}
+
+#saveBtn {
+    background-color: #9b59b6;
+    color: white;
+}
+
+#saveBtn:hover {
+    background-color: #854fa3;
+}
+
+/* Lista zapisanych symulacji */
+.simulation-list {
+    list-style: none;
+    padding: 0;
+}
+
+.simulation-list li {
+    background-color: #1e1e1e;
+    padding: 10px;
+    margin: 5px auto;
+    width: 60%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.simulation-list li button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.simulation-list li button:hover {
+    background-color: #2a7cb7;
 }
