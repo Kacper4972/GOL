@@ -75,4 +75,4 @@ game_of_life/
 Projekt stworzony przez 
 - Kacper Pietrucha
 - Gabriel Tyszka - (https://github.com/Dnsflr)
-- Jakub Pawlak 
+- Jakub Pawlak - (https://github.com/Bulbulator420)
