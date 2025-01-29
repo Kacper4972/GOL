@@ -29,14 +29,20 @@ def register():
         if User.query.filter_by(username=username).first():
             flash('Użytkownik już istnieje', 'danger')
             return redirect(url_for('register'))
-        
-        new_user = User(username=username)
-        new_user.set_password(password)
-        db.session.add(new_user)
-        db.session.commit()
+        elif len(username) < 3:
+            flash('Nazwa uzytkownika musi zawierac przynajmniej 3 znaki.', 'danger')
+            return redirect(url_for('register'))
+        elif len(password) < 7:
+            flash('Haslo musi posiadac przynajmniej 7 znakow.', 'danger')
+            return redirect(url_for('register'))
+        else:
+            new_user = User(username=username)
+            new_user.set_password(password)
+            db.session.add(new_user)
+            db.session.commit()
 
-        flash('Rejestracja zakończona sukcesem! Możesz się zalogować.', 'success')
-        return redirect(url_for('login'))
+            flash('Rejestracja zakończona sukcesem! Możesz się zalogować.', 'success')
+            return redirect(url_for('login'))
 
     return render_template('register.html')
 
@@ -52,7 +58,7 @@ def login():
             login_user(user)
             return redirect(url_for('index'))
         
-        flash('Błędne dane logowania', 'danger')
+        flash('Błędne dane logowania', category='danger')
 
     return render_template('login.html')
 
@@ -60,9 +66,10 @@ def login():
 @login_required
 def logout():
     logout_user()
+    flash('Pomyślnie wylogowano.', 'success')
     return redirect(url_for('login'))
 
-# --- OBSŁUGA GRY W ŻYCIE ---
+# --- OBSŁUGA GRY ---
 @app.route('/')
 @login_required
 def index():
