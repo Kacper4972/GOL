@@ -108,6 +108,10 @@ document.getElementById("stopBtn").addEventListener("click", stopSimulation);
 document.getElementById("randomBtn").addEventListener("click", generateRandomGrid);
 document.getElementById("saveBtn").addEventListener("click", saveSimulation);
 
+// Pobranie aktualnej planszy po załadowaniu strony
+document.addEventListener("DOMContentLoaded", fetchGrid);
+
+
 // Pobranie i narysowanie początkowej planszy
 fetchGrid();
 

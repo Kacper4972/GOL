@@ -125,11 +125,14 @@ def save_simulation():
     
     if not sim_name:
         return jsonify({"error": "Nazwa symulacji jest wymagana"}), 400
+
+    if not current_user.game_state:
+        return jsonify({"error": "Brak aktywnej symulacji do zapisania"}), 400
     
     new_simulation = SavedSimulation(
         user_id=current_user.id,
         name=sim_name,
-        grid_state=json.dumps(current_user.game_state)
+        grid_state=current_user.game_state  # Przechowujemy w formacie JSON
     )
     
     db.session.add(new_simulation)
@@ -150,10 +153,12 @@ def load_simulation(sim_id):
     if simulation.user_id != current_user.id:
         return redirect(url_for('saved_simulations'))
 
+    # Wczytujemy planszę i zapisujemy do game_state
     current_user.game_state = simulation.grid_state
     db.session.commit()
     
     return redirect(url_for('index'))
+
 
 
 if __name__ == '__main__':
