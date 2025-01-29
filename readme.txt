@@ -70,11 +70,20 @@ game_of_life/
 │── README.md        # Dokumentacja
 ```
 
+## **🛠️ Technologie**
+- **Backend:** Flask, Flask-Login, Flask-SQLAlchemy
+- **Frontend:** HTML, CSS, JavaScript (Canvas API)
+- **Baza danych:** SQLite
+
+## **📝 TODO / Możliwe ulepszenia**
+- 📌 Dodanie obsługi różnych rozmiarów planszy
+- 📌 Możliwość eksportu/importu symulacji do pliku
+- 📌 Lepsze animacje przejść między generacjami
+- 📌 Ranking najpopularniejszych symulacji użytkowników
+
 ## **📜 Licencja**
 Ten projekt jest udostępniony na licencji **MIT** – możesz go dowolnie modyfikować i rozwijać! 🎉
 
-## **👨‍💻 Autorzy**
-Projekt stworzony przez 
-- Kacper Pietrucha
-- Gabriel Tyszka - (https://github.com/Dnsflr)
-- Jakub Pawlak 
+## **👨‍💻 Autor**
+Projekt stworzony przez [Twoje Imię] ✨. Jeśli masz pytania, daj znać! 🚀
+
