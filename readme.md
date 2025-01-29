@@ -70,8 +70,6 @@ game_of_life/
 │── README.md        # Dokumentacja
 ```
 
-## **📜 Licencja**
-Ten projekt jest udostępniony na licencji **MIT** – możesz go dowolnie modyfikować i rozwijać! 🎉
 
 ## **👨‍💻 Autorzy**
 Projekt stworzony przez 
